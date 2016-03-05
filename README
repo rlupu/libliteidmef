@@ -1,0 +1,74 @@
+COPYRIGHT
+=========
+	See COPYRIGHT file for further information.
+
+
+ABOUT
+=====
+	Libliteidmef library provides a standardized IDMEF-based notifications 
+	management API that can guarrantee interoperability among commercial,
+	open source and research systems. IDMEF(Intrusion Detection Message Exchange
+	Format) define data formats and exchange procedures for sharing information
+	of interest to intrusion detecion and response systems and to management
+	systems that may need to interact with them [RFC 4765].
+	
+	The overall design goal was to provide support for IDMEF-based signaling 
+	plane deployments for distributed IDS architectures. 
+
+	Libliteidmef is built around the IDMEF message's context core concept, in 
+	order to provide the required flexibility and extensibility. Each context 
+	input and output could be configured in three modes: file (IDMEF_MODE_FILE), 
+	remote generator/consumer(IDMEF_MODE_SOCK) or both of them (IDMEF_MODE_FS). 
+	Whenever a new IDMEF notification is received a user-defined callback function 
+	is run (see doc files for the API description and samples from test/
+	subdirectory).
+
+	NOTE, the current release of the library does not fully implement the standard
+	specifications. More specifically, the tags list is incomplete, the IDMEF 
+	messages are encoded using one octet UTF-8 (default) method and are wrapped 
+	directly on TCP (no IDXP support[RFC 4767] available, yet).  
+
+	A plugin-like model was chosen for the library's implementation. The code 
+	was written in C language entirely and compiled with gcc. 
+
+	The current standard does not integrate security mechanisms, therefore add 
+	external security services (e.g. TLS/SSL, IPSec, SSH) for IDMEF messages' 
+	exchanges protection if required. 
+
+	 ...
+ 
+
+
+(UN)INSTALLATION PROCEDURE
+===========================
+	See INSTALL file for package's dependencies, (un)installation and testing 
+	instructions.
+
+
+UTILISATION SAMPLE
+==================
+	Libliteidmef could be integrated into your project either as static or 
+	shared library(default) in a traditional way. Linking against libliteidmef
+	is as simple as:
+
+		gcc <*.c> `pkg-config --libs libliteidmef-0.1` -o <program>
+
+	
+	Further info usefull in working with Libliteidmef, such as API's
+	specification (including a diagram-based grammar definition), could be 
+	searched for within doc/ subdirectory. Also, by understanding and running 
+	samples located within test/ folder the developer could get a hint on how to
+ 	start coding with Libliteidmef library.
+
+
+CONTACT
+=======
+Please submit bug reports or further improvements suggestions to: 
+	email: rlupu@elcom.pub.ro
+
+
+
+CONTRIBUTORS
+============
+	Radu Lupu(November, 2015)
+	...

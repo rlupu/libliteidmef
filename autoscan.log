@@ -1,0 +1,16 @@
+autoscan: warning: missing AC_CHECK_FUNCS([gettimeofday]) wanted by: 
+	src/idmef_plugin.c:58
+	src/idmef_server.c:115
+	src/idmef_server.c:528
+autoscan: warning: missing AC_CHECK_HEADERS([arpa/inet.h]) wanted by: 
+	src/idmef_server.c:10
+autoscan: warning: missing AC_CHECK_HEADERS([sys/time.h]) wanted by: 
+	src/idmef_plugin.c:21
+	src/idmef_server.c:11
+autoscan: warning: missing AC_C_INLINE wanted by: 
+	src/commons/utils.h:57
+	src/commons/utils.h:58
+	src/commons/utils.h:64
+	src/commons/utils.h:65
+	src/commons/utils.h:66
+	src/commons/utils.h:67

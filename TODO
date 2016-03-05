@@ -1,0 +1,5 @@
+
+1. full UTF-8 encoding support;
+2. complete IDMEF tags list (e.g. AdditionalData, WebService, Assessment, Heartbeat, ...);
+3. implementation&tests of idmef_setcb() and idmef_chcon();
+4. add convertor from IDMEF DTD to c structures

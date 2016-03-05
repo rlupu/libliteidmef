@@ -1,0 +1,17 @@
+#libliteidmef pkg-config file
+#TODO: PKG_CHECK_MODULES, PKG_CHECK_EXIST macros for use in configure.ac
+#NOTE: set PKG_CONFIG_PATH if .pc file not seen by pkg-config
+
+prefix=@prefix@
+#exec_prefix=@exec_prefix@
+#libdir=@libdir@
+#includedir=@includedir@
+
+
+Name:	@PACKAGE_NAME@
+Version: @PACKAGE_VERSION@
+Description: IDMEF-based alerting library
+#URL: ...
+#Requires: lpthread
+Libs: -lliteidmef
+#Cflags: ...

@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>192.168.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>192.168.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>192.168.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>192.168.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>192.168.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>192.168.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>192.168.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>192.168.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>192.168.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1234">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:14:13+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>192.168.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0x1235">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2015-12-06T11:24:03+0200</idmef:CreateTime>
+		<idmef:Source>
+			<idmef:Node>
+				<idmef:Address category="unknown">
+					<idmef:address>172.16.0.1</idmef:address>
+				</idmef:Address>
+			</idmef:Node>
+		</idmef:Source>
+		<idmef:Classification text="This is a Jedi greeting!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>

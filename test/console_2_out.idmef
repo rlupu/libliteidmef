@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2016-01-26T19:45:19 +0200</idmef:CreateTime>
+		<idmef:Classification text="Hello Jedi!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="1">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2016-01-26T19:45:21 +0200</idmef:CreateTime>
+		<idmef:Classification text="Hello Jedi!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="2">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2016-01-26T19:45:23 +0200</idmef:CreateTime>
+		<idmef:Classification text="Hello Jedi!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
+<idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="0">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2016-02-18T19:43:04 +0200</idmef:CreateTime>
+		<idmef:Classification text="Hello Jedi!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="1">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2016-02-18T19:43:06 +0200</idmef:CreateTime>
+		<idmef:Classification text="Hello Jedi!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message><idmef:IDMEF-Message version="1.0" xmlns:idmef="http://iana.org/idmef">
+	<idmef:Alert messageid="2">
+		<idmef:Analyzer name="Yoda">
+		</idmef:Analyzer>
+		<idmef:CreateTime>2016-02-18T19:43:08 +0200</idmef:CreateTime>
+		<idmef:Classification text="Hello Jedi!">
+		</idmef:Classification>
+	</idmef:Alert>
+</idmef:IDMEF-Message>
