@@ -1,2 +1,0 @@
-Compile with:
-	gcc ../../../../commons/stack.c  ../src/idmef_plugin.c ../src/idmef_server.c testconsole.c -lpthread -o console
