@@ -45,7 +45,7 @@ idmef_server.lo: idmef_server.c /usr/include/stdc-predef.h ../config.h \
  /usr/include/errno.h /usr/include/i386-linux-gnu/bits/errno.h \
  /usr/include/linux/errno.h /usr/include/i386-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- idmef_plugin.h commons/utils.h /usr/include/net/if_arp.h commons/stack.h
+ idmef_plugin.h commons/utils.h commons/stack.h
 
 /usr/include/stdc-predef.h:
 
@@ -178,7 +178,5 @@ idmef_server.lo: idmef_server.c /usr/include/stdc-predef.h ../config.h \
 idmef_plugin.h:
 
 commons/utils.h:
-
-/usr/include/net/if_arp.h:
 
 commons/stack.h:

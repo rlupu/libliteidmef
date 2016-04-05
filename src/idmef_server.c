@@ -570,7 +570,9 @@ void *idmef_server(void *ctxt){
 
 					case IDMEF_PARSER_STATE_ALERT0:
 						if(strncasecmp("messageid", rbuff+i, 9) == 0){
+#ifdef IDMEF_DEBUG
 							fprintf(stdout, "\t\tmessageid attribute found (state=%d)!\n", state);
+#endif
 							//TODO:check with ctxt structure whether this attr is required to be read/modify; if yes, then
 							//alloc a new (distinct)line within iov[] for this attribute and set related ctxt pointers to 
 							//enable read/set attr operations.
@@ -641,7 +643,9 @@ void *idmef_server(void *ctxt){
 
 					case	IDMEF_PARSER_STATE_ANALYZER0:
 						if(strncasecmp("name", rbuff+i, 4) == 0){
+#ifdef IDMEF_DEBUG
 							fprintf(stdout, "\t\t\tname attribute found (state=%d)!\n", state);
+#endif
 
 							if( ((idmef_t *)ctxt)->alert_tag->analyzer_tag.en_attrs & IDMEF_ATTR_ANALYZER_NAME){
 								((idmef_t *)ctxt)->alert_tag->analyzer_tag.name = (unsigned char **) &( ((idmef_t *)ctxt)->iov[((idmef_t *)ctxt)->iov_len].iov_base);
@@ -801,7 +805,9 @@ void *idmef_server(void *ctxt){
 
 					case	IDMEF_PARSER_STATE_CLASSIFICATION0:
 						if(strncasecmp("text", rbuff+i, 4) == 0){
+#ifdef IDMEF_DEBUG
 							fprintf(stdout, "\t\t\ttext attribute found (state=%d)!\n", state);
+#endif
 
 							//assert(((idmef_t *)ctxt)->alert_tag != NULL);
 							((idmef_t *)ctxt)->alert_tag->classification_tag.text = (unsigned char **) &( ((idmef_t *)ctxt)->iov[((idmef_t *)ctxt)->iov_len].iov_base);
@@ -864,7 +870,9 @@ void *idmef_server(void *ctxt){
 
 						stack_peek(ptags, (any_t *)&current_parenttag);
 						if(strncasecmp("origin", rbuff+i, 6) == 0){
+#ifdef IDMEF_DEBUG
 							fprintf(stdout, "\t\t\t\torigin attribute found (state=%d)!\n", state);
+#endif
 							
 							((idmef_reference_t *)current_parenttag)->origin = (unsigned char **) &( ((idmef_t *)ctxt)->iov[((idmef_t *)ctxt)->iov_len].iov_base);
 							((idmef_reference_t *)current_parenttag)->origin_len = (unsigned int *) &( ((idmef_t *)ctxt)->iov[((idmef_t *)ctxt)->iov_len].iov_len);

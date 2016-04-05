@@ -10,7 +10,7 @@ prefix=/usr/local
 
 Name:	libliteidmef
 Version: 0.1
-Description: IDMEF-based signaling library
+Description: IDMEF-based alerting library
 #URL: ...
 #Requires: lpthread
 Libs: -lliteidmef

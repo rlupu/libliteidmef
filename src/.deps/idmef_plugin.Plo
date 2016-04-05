@@ -51,7 +51,7 @@ idmef_plugin.lo: idmef_plugin.c /usr/include/stdc-predef.h ../config.h \
  /usr/include/asm-generic/socket.h \
  /usr/include/i386-linux-gnu/asm/sockios.h \
  /usr/include/asm-generic/sockios.h /usr/include/i386-linux-gnu/bits/in.h \
- ../src/commons/utils.h /usr/include/net/if_arp.h
+ ../src/commons/utils.h
 
 /usr/include/stdc-predef.h:
 
@@ -200,5 +200,3 @@ idmef_plugin.h:
 /usr/include/i386-linux-gnu/bits/in.h:
 
 ../src/commons/utils.h:
-
-/usr/include/net/if_arp.h:
