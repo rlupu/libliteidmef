@@ -1,7 +1,7 @@
 /*
-	This file is part of the Libliteidmef Library. Libliteidmef provides
-	the API to the IDMEF-based alerting layer.
-	Copyright (C) 2015 Radu Lupu
+   This file is part of the Libliteidmef Library. Libliteidmef provides
+   the API to the IDMEF-based alerting layer.
+   Copyright (C) 2015 Radu Lupu
 
   	Libliteidmef library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Lesser General Public
