@@ -25,21 +25,21 @@
 #include <netinet/in.h>
 
 
-#define IDMEF_PORT				8800
+#define IDMEF_PORT		8800
 
 //tags are encoded on 8MSb and attrs on 24 LSb 
-#define IDMEF_TAG_HEARTBEAT								0x01000000	
-#define IDMEF_TAG_ALERT										0x02000000
-#define IDMEF_TAG_ANALYZER									0x03000000	
-#define IDMEF_TAG_CREATETIME								0x04000000
-#define IDMEF_TAG_SOURCE									0x05000000
-#define IDMEF_TAG_TARGET									0x06000000	
-#define IDMEF_TAG_NODE										0x07000000		
-#define IDMEF_TAG_CLASSIFICATION							0x08000000	
-#define IDMEF_TAG_ADDR										0x09000000		
-#define IDMEF_TAG_SERVICE									0x0a000000		
-#define IDMEF_TAG_REFERENCE								0x0b000000		
-#define IDMEF_TAG_MESSAGE									0x0c000000		
+#define IDMEF_TAG_HEARTBEAT					0x01000000	
+#define IDMEF_TAG_ALERT							0x02000000
+#define IDMEF_TAG_ANALYZER						0x03000000	
+#define IDMEF_TAG_CREATETIME					0x04000000
+#define IDMEF_TAG_SOURCE						0x05000000
+#define IDMEF_TAG_TARGET						0x06000000	
+#define IDMEF_TAG_NODE							0x07000000		
+#define IDMEF_TAG_CLASSIFICATION				0x08000000	
+#define IDMEF_TAG_ADDR							0x09000000		
+#define IDMEF_TAG_SERVICE						0x0a000000		
+#define IDMEF_TAG_REFERENCE					0x0b000000		
+#define IDMEF_TAG_MESSAGE						0x0c000000		
 
 
 #define IDMEF_ATTR_ALL				 						0x00ffffff
