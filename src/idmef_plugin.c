@@ -41,9 +41,9 @@
 #define IDMEF_MASK_ATTR				0x00ffffff
 
 
-const unsigned char IDMEF_ATTR_VALUE_XMLNS[]		= "http://iana.org/idmef";
-const unsigned char IDMEF_ATTR_VALUE_VER[]		= "1.0";
-const unsigned char IDMEF_ATTR_VALUE_UNKNOWN[] 	= "unknown";
+const unsigned char IDMEF_ATTR_VALUE_XMLNS[]	  = "http://iana.org/idmef";
+const unsigned char IDMEF_ATTR_VALUE_VER[]     = "1.0";
+const unsigned char IDMEF_ATTR_VALUE_UNKNOWN[] = "unknown";
 
 extern pthread_t tid_idmefserver;
 extern void *idmef_server(void *);
@@ -63,12 +63,12 @@ char idmef_new(idmef_ifs_t *io, idmef_t **ctxt, void (*cb)(void) ){
 	}
 	(*ctxt)->version = (unsigned char **)IDMEF_ATTR_VALUE_VER;
 	(*ctxt)->xmlns = (unsigned char **)IDMEF_ATTR_VALUE_XMLNS;
-	(*ctxt)->en_attrs = IDMEF_ATTR_MESSAGE_XMLNS | IDMEF_ATTR_MESSAGE_VER; 			//manadatory attrs
+	(*ctxt)->en_attrs = IDMEF_ATTR_MESSAGE_XMLNS | IDMEF_ATTR_MESSAGE_VER;	//manadatory attrs
 	gettimeofday(&tv, NULL);
 	(*ctxt)->ts = tv.tv_usec;
 
 	(*ctxt)->alert_tag = NULL;
-	(*ctxt)->heartbeat_tag = NULL;																//not implemented, yet
+	(*ctxt)->heartbeat_tag = NULL;	//not implemented, yet
 
 	(*ctxt)->iov = (struct iovec *)malloc(IDMEF_MAX_IOV_LEN*sizeof(struct iovec));
 	assert((*ctxt)->iov != NULL);
