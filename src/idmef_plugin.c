@@ -41,7 +41,7 @@
 #define IDMEF_MASK_ATTR				0x00ffffff
 
 
-const unsigned char IDMEF_ATTR_VALUE_XMLNS[]	  = "http://iana.org/idmef";
+const unsigned char IDMEF_ATTR_VALUE_XMLNS[]   = "http://iana.org/idmef";
 const unsigned char IDMEF_ATTR_VALUE_VER[]     = "1.0";
 const unsigned char IDMEF_ATTR_VALUE_UNKNOWN[] = "unknown";
 
@@ -63,7 +63,7 @@ char idmef_new(idmef_ifs_t *io, idmef_t **ctxt, void (*cb)(void) ){
 	}
 	(*ctxt)->version = (unsigned char **)IDMEF_ATTR_VALUE_VER;
 	(*ctxt)->xmlns = (unsigned char **)IDMEF_ATTR_VALUE_XMLNS;
-	(*ctxt)->en_attrs = IDMEF_ATTR_MESSAGE_XMLNS | IDMEF_ATTR_MESSAGE_VER;	//manadatory attrs
+	(*ctxt)->en_attrs = IDMEF_ATTR_MESSAGE_XMLNS | IDMEF_ATTR_MESSAGE_VER;	//mandatory attrs
 	gettimeofday(&tv, NULL);
 	(*ctxt)->ts = tv.tv_usec;
 
@@ -90,14 +90,14 @@ char idmef_new(idmef_ifs_t *io, idmef_t **ctxt, void (*cb)(void) ){
 	(*ctxt)->mode_in = io->mode_in;
 
 	if(io->mode_in == IDMEF_MODE_FILE ){
-		if(access(io->filename_in, F_OK) == 0) flag = TRUE;					//check wheather eggress file exists
+		if(access(io->filename_in, F_OK) == 0) flag = TRUE;   //check wheather eggress file exists
 
 		if (((*ctxt)->fs_in = fopen(io->filename_in, "r")) < 0){ 	
 			fprintf(stderr, "%s(%s): could not open alarms dump file. %s\n", __FILE__, __LINE__, strerror(errno));
 			exit(EXIT_FAILURE);
 		}
 		(*ctxt)->fd_in = fileno((*ctxt)->fs_in);
-	} else if(io->mode_in == IDMEF_MODE_SOCK){									//open server socket and create server thread
+	} else if(io->mode_in == IDMEF_MODE_SOCK){               //open server socket and create server thread
 		int optval = 1;
 		struct sockaddr_in sa;
 
@@ -107,7 +107,7 @@ char idmef_new(idmef_ifs_t *io, idmef_t **ctxt, void (*cb)(void) ){
 		memset(&sa, 0, sizeof(sa));
 		sa.sin_family = AF_INET;
 		sa.sin_port = htons(IDMEF_PORT);
-		sa.sin_addr.s_addr = htonl(INADDR_ANY);									//TODO: change to "in->ip_addr"
+		sa.sin_addr.s_addr = htonl(INADDR_ANY);              //TODO: change to "in->ip_addr"
 
 		if(setsockopt((*ctxt)->sd_in, SOL_SOCKET, SO_REUSEADDR, (char *)&optval, sizeof(optval)) < 0){
 			perror("SO_REUSEADDR");
@@ -123,13 +123,13 @@ char idmef_new(idmef_ifs_t *io, idmef_t **ctxt, void (*cb)(void) ){
 			exit(EXIT_FAILURE);
 		}
 
-		pthread_create(&tid_idmefserver, NULL, &idmef_server, (void *)*ctxt);		//start server
+		pthread_create(&tid_idmefserver, NULL, &idmef_server, (void *)*ctxt);  //start server
 	}
 
 	(*ctxt)->mode_out = io->mode_out;
 
 	if( io->mode_out == IDMEF_MODE_FILE || io->mode_out == IDMEF_MODE_FS){
-		if(access(io->filename_out, F_OK) == 0) flag = TRUE;				//check wheather eggress file exists
+		if(access(io->filename_out, F_OK) == 0) flag = TRUE; //check wheather eggress file exists
 
 		if (((*ctxt)->fs_out = fopen(io->filename_out, "a")) < 0){ 	
 			fprintf(stderr, "%s(%d): could not open alarms dump file. %s\n", __FILE__, __LINE__, strerror(errno));
@@ -148,7 +148,7 @@ char idmef_new(idmef_ifs_t *io, idmef_t **ctxt, void (*cb)(void) ){
 		//fflush((*ctxt)->fs_out);
 	}
 
-	if( io->mode_out == IDMEF_MODE_SOCK || io->mode_out == IDMEF_MODE_FS ){		//to avoid open socket multiple times
+	if( io->mode_out == IDMEF_MODE_SOCK || io->mode_out == IDMEF_MODE_FS ){ //avoid open socket multiple times
 		(*ctxt)->sd_out = socket(PF_INET, SOCK_STREAM, 0);
 		assert((*ctxt)->sd_out >= 0);
 
@@ -171,7 +171,7 @@ char idmef_new(idmef_ifs_t *io, idmef_t **ctxt, void (*cb)(void) ){
 }
 
 
-char idmef_chcon(idmef_t *ctxt, idmef_ifs_t *o){		//not tested, yet
+char idmef_chcon(idmef_t *ctxt, idmef_ifs_t *o){           //not tested, yet
 
 	if( (ctxt->sd_out < 0) || (o->ipaddr_out == NULL) || (ctxt == NULL) || 
 		((ctxt->mode_out != IDMEF_MODE_SOCK) && (ctxt->mode_out != IDMEF_MODE_FS)) ) return (-1);
@@ -189,7 +189,8 @@ char idmef_chcon(idmef_t *ctxt, idmef_ifs_t *o){		//not tested, yet
 	}
 	
 	if( connect(ctxt->sd_out, (struct sockaddr *)&(ctxt->remote_out), sizeof(struct sockaddr_in)) < 0){
-		fprintf(stderr, "%s(%d): cannot  reconnect to the new remote agent. %s\n", __FILE__, __LINE__, strerror(errno));
+		fprintf(stderr, "%s(%d): cannot  reconnect to the new remote agent. %s\n",\
+			__FILE__, __LINE__, strerror(errno));
 		exit(EXIT_FAILURE);
 	}
 
@@ -206,16 +207,17 @@ char idmef_message_addtag(idmef_t *msg, unsigned int code, void **tag){
 
 	assert(msg != NULL);
 
-	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_ALERT){ 										//optional tag
+	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_ALERT){        //optional tag
 		if(msg->alert_tag == NULL){
 
 			if((msg->alert_tag = (idmef_alert_t *)malloc(sizeof(idmef_alert_t)*sizeof(unsigned char)) ) == NULL){
-				fprintf(stderr, "%s(%s): could not malloc alert_tag's room. %s\n", __FILE__, __LINE__, strerror(errno));
+				fprintf(stderr, "%s(%s): could not malloc alert_tag's room. %s\n",\
+					__FILE__, __LINE__, strerror(errno));
 				exit(EXIT_FAILURE);
 			}
 
-			msg->alert_tag->messageid = (unsigned char **)NULL;								//mandatory attr
-			msg->alert_tag->messageid_len = (unsigned int *)NULL;								//mandatory attr
+			msg->alert_tag->messageid = (unsigned char **)NULL;   //mandatory attr
+			msg->alert_tag->messageid_len = (unsigned int *)NULL; //mandatory attr
 			msg->alert_tag->messageid_ts = msg->ts;
 
 			msg->alert_tag->en_attrs |= IDMEF_ATTR_ALERT_MESSAGEID;
@@ -232,20 +234,20 @@ char idmef_message_addtag(idmef_t *msg, unsigned int code, void **tag){
 			msg->alert_tag->createtime_tag.en_attrs |= IDMEF_ATTR_CREATETIME_BODY;
 			msg->alert_tag->createtime_tag.ctxt = msg;
 
-			for(i = 0; i < IDMEF_MAX_SOURCES_NO; i++) msg->alert_tag->source_tag[i] = NULL;		//optional attribute 
+			for(i = 0; i < IDMEF_MAX_SOURCES_NO; i++) msg->alert_tag->source_tag[i] = NULL; //optional attribute 
 			msg->alert_tag->sources_no = 0;
 
 			for(i = 0; i < IDMEF_MAX_TARGETS_NO; i++) msg->alert_tag->target_tag[i] = NULL;				 
 			msg->alert_tag->targets_no = 0;
 
-			msg->alert_tag->classification_tag.text = (unsigned char **)NULL;				//mandatory attr 
+			msg->alert_tag->classification_tag.text = (unsigned char **)NULL; //mandatory attr 
 			msg->alert_tag->classification_tag.text_len = (unsigned int *)NULL;		 
 			for(i = 0; i < IDMEF_MAX_REF_NO; i++) msg->alert_tag->classification_tag.reference_tag[i] = NULL;		 
 			msg->alert_tag->classification_tag.references_no = 0;
 			msg->alert_tag->classification_tag.en_attrs |= IDMEF_ATTR_CLASSIFICATION_TEXT;
 			msg->alert_tag->classification_tag.ctxt = msg;
 
-			msg->alert_tag->ctxt = msg;		//= ctxt
+			msg->alert_tag->ctxt = msg;   //= ctxt
 		}
 
 		msg->alert_tag->ts = msg->ts;
@@ -286,30 +288,33 @@ char idmef_message_setattr(unsigned int code, idmef_t *tag){
 
 char idmef_alert_addtag(idmef_alert_t *alert, unsigned int code, void **tag){
 
-	assert(alert != NULL);														//you should alloc alert tag first
+	assert(alert != NULL);                            //you should alloc alert tag first
 
-	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_TARGET){					//optional tag
+	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_TARGET){ //optional tag
 		if(alert->targets_no >= IDMEF_MAX_TARGETS_NO){
-			fprintf(stderr, "%s(%d): pre-established IDMEF_MAX_TARGETS_NO const exceded.\n", __FILE__, __LINE__);
+			fprintf(stderr, "%s(%d): pre-established IDMEF_MAX_TARGETS_NO const exceded.\n",\
+				__FILE__, __LINE__);
 			return (-2);
 		}
 
 		if(alert->target_tag[alert->targets_no] == NULL){
 
-			if((alert->target_tag[alert->targets_no] = (idmef_target_t *)malloc(sizeof(idmef_target_t)*sizeof(unsigned char)) ) == NULL){
-				fprintf(stderr, "%s(%d): could not malloc target_tag's room. %s\n", __FILE__, __LINE__, strerror(errno));
+			if((alert->target_tag[alert->targets_no] =\
+				(idmef_target_t *)malloc(sizeof(idmef_target_t)*sizeof(unsigned char)) ) == NULL){
+				fprintf(stderr, "%s(%d): could not malloc target_tag's room. %s\n",\
+					__FILE__, __LINE__, strerror(errno));
 				exit(EXIT_FAILURE);
 			}
 
-			alert->target_tag[alert->targets_no]->ident 			= (unsigned char **)NULL;
-			alert->target_tag[alert->targets_no]->ident_len 	= (unsigned int *)NULL;
-			alert->target_tag[alert->targets_no]->interface 	= (unsigned char **)NULL;
+			alert->target_tag[alert->targets_no]->ident        = (unsigned char **)NULL;
+			alert->target_tag[alert->targets_no]->ident_len    = (unsigned int *)NULL;
+			alert->target_tag[alert->targets_no]->interface    = (unsigned char **)NULL;
 			alert->target_tag[alert->targets_no]->interface_len= (unsigned int *)NULL;
-			alert->target_tag[alert->targets_no]->decoy 			= (unsigned char **)NULL;
-			alert->target_tag[alert->targets_no]->decoy_len		= (unsigned int *)NULL;
+			alert->target_tag[alert->targets_no]->decoy        = (unsigned char **)NULL;
+			alert->target_tag[alert->targets_no]->decoy_len    = (unsigned int *)NULL;
 
-			alert->target_tag[alert->targets_no]->node_tag 		= NULL;
-			alert->target_tag[alert->targets_no]->service_tag 	= NULL;
+			alert->target_tag[alert->targets_no]->node_tag     = NULL;
+			alert->target_tag[alert->targets_no]->service_tag  = NULL;
 			//TODO: init other tags ...
 
 			alert->target_tag[alert->targets_no]->en_attrs = (code & IDMEF_MASK_ATTR);
@@ -337,28 +342,31 @@ char idmef_alert_addtag(idmef_alert_t *alert, unsigned int code, void **tag){
 		return (0);
 	}
 
-	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_SOURCE){					//optional tag
+	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_SOURCE){  //optional tag
 		if(alert->sources_no >= IDMEF_MAX_SOURCES_NO){ 
-			fprintf(stderr, "%s(%d): pre-established IDMEF_MAX_SOURCES_NO const exceded.\n", __FILE__, __LINE__);
+			fprintf(stderr, "%s(%d): pre-established IDMEF_MAX_SOURCES_NO const exceded.\n", \
+				_FILE__, __LINE__);
 			return (-2);
 		}
 
 		if(alert->source_tag[alert->sources_no] == NULL){
 
-			if((alert->source_tag[alert->sources_no] = (idmef_source_t *)malloc(sizeof(idmef_source_t)*sizeof(unsigned char)) ) == NULL){
-				fprintf(stderr, "%s(%d): could not malloc source_tag's room. %s\n", __FILE__, __LINE__, strerror(errno));
+			if((alert->source_tag[alert->sources_no] = \
+				(idmef_source_t *)malloc(sizeof(idmef_source_t)*sizeof(unsigned char)) ) == NULL){
+				fprintf(stderr, "%s(%d): could not malloc source_tag's room. %s\n",\
+					__FILE__, __LINE__, strerror(errno));
 				exit(EXIT_FAILURE);
 			}
 
-			alert->source_tag[alert->sources_no]->ident 			= (unsigned char **)NULL;
-			alert->source_tag[alert->sources_no]->ident_len 	= (unsigned int *)NULL;
-			alert->source_tag[alert->sources_no]->spoofed 		= (unsigned char **)NULL;
-			alert->source_tag[alert->sources_no]->spoofed_len	= (unsigned int *)NULL;
-			alert->source_tag[alert->sources_no]->interface 	= (unsigned char **)NULL;
+			alert->source_tag[alert->sources_no]->ident        = (unsigned char **)NULL;
+			alert->source_tag[alert->sources_no]->ident_len    = (unsigned int *)NULL;
+			alert->source_tag[alert->sources_no]->spoofed      = (unsigned char **)NULL;
+			alert->source_tag[alert->sources_no]->spoofed_len  = (unsigned int *)NULL;
+			alert->source_tag[alert->sources_no]->interface    = (unsigned char **)NULL;
 			alert->source_tag[alert->sources_no]->interface_len= (unsigned int *)NULL;
 
-			alert->source_tag[alert->sources_no]->node_tag 		= NULL;
-			alert->source_tag[alert->sources_no]->service_tag 	= NULL;
+			alert->source_tag[alert->sources_no]->node_tag     = NULL;
+			alert->source_tag[alert->sources_no]->service_tag  = NULL;
 			//TODO: init other tags ...
 
 			alert->source_tag[alert->sources_no]->en_attrs = (code & IDMEF_MASK_ATTR);
@@ -411,7 +419,7 @@ char idmef_alert_deltag(idmef_alert_t *alert, unsigned int code, unsigned char p
 							alert->target_tag[j] = NULL;
 							break;
 						}
-					if(j == IDMEF_MAX_TARGETS_NO) break;	//no elems lasts
+					if(j == IDMEF_MAX_TARGETS_NO) break;   //no elems lasts
 				}
 			alert->targets_no--;
 		} else 
@@ -436,7 +444,7 @@ char idmef_alert_deltag(idmef_alert_t *alert, unsigned int code, unsigned char p
 							alert->source_tag[j] = NULL;
 							break;
 						}
-					if(j == IDMEF_MAX_SOURCES_NO) break;	//no elems lasts
+					if(j == IDMEF_MAX_SOURCES_NO) break;   //no elems lasts
 				}
 			alert->sources_no--;
 		} else 
@@ -487,18 +495,18 @@ void idmef_alert_wrattr(idmef_alert_t *alert, unsigned int attr, unsigned char *
 	if(alert == NULL) return;
 
 	if(attr == IDMEF_ATTR_ALERT_MESSAGEID){
-		if(alert->messageid == (unsigned char **)NULL){					//no room avail.
+		if(alert->messageid == (unsigned char **)NULL){       //no room avail.
 			alert->messageid = (unsigned char **)&(alert->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - alert->ctxt->iov_blob_len].iov_base);
 			alert->messageid_len = &(alert->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - alert->ctxt->iov_blob_len].iov_len);
 			alert->ctxt->iov_blob_len++;
 		}
-		*(alert->messageid) = value;										//within postcompilation
+		*(alert->messageid) = value;                         //within postcompilation
 		*(alert->messageid_len) = len;
 		alert->messageid_ts = alert->ts;		
 	}
 }
 
-char idmef_alert_setattr(idmef_alert_t *alert, unsigned int code){ //TODO: it is really necessary ?????
+char idmef_alert_setattr(idmef_alert_t *alert, unsigned int code){ //TODO: is it really necessary ??
 	assert(alert != NULL);
 /*
 	if( ((idmef_t *)(*tag))->alert_tag == NULL ){ 
@@ -560,12 +568,12 @@ void idmef_analyzer_wrattr(idmef_analyzer_t *analyzer, unsigned int attr, unsign
 	if(analyzer == NULL) return;
 
 	if(attr == IDMEF_ATTR_ANALYZER_NAME){						
-		if(analyzer->name == (unsigned char **)NULL){					//within precompilation 
+		if(analyzer->name == (unsigned char **)NULL){        //within precompilation 
 			analyzer->name = (unsigned char **)&(analyzer->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - analyzer->ctxt->iov_blob_len].iov_base);
 			analyzer->name_len = &(analyzer->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - analyzer->ctxt->iov_blob_len].iov_len);
 			analyzer->ctxt->iov_blob_len++;
 		}
-		*(analyzer->name) = value;											//within postcompilation
+		*(analyzer->name) = value;                          //within postcompilation
 		*(analyzer->name_len) = len;
 		analyzer->name_ts = analyzer->ctxt->ts;
 	}
@@ -614,12 +622,12 @@ void idmef_createtime_wrattr(idmef_createtime_t *ct, unsigned int attr, unsigned
 	if(ct == NULL) return;
 
 	if(attr == IDMEF_ATTR_CREATETIME_BODY){
-		if(ct->body == (unsigned char **)NULL){					// no room avail.
+		if(ct->body == (unsigned char **)NULL){             // no room avail.
 			ct->body = (unsigned char **)&(ct->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - ct->ctxt->iov_blob_len].iov_base);
 			ct->body_len = &(ct->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - ct->ctxt->iov_blob_len].iov_len);
 			ct->ctxt->iov_blob_len++;
 		}
-		*(ct->body) = value;											//within postcompilation
+		*(ct->body) = value;                                //within postcompilation
 		*(ct->body_len) = len;	
 		ct->body_ts = ct->ctxt->ts;
 	}
@@ -649,18 +657,19 @@ char idmef_target_addtag(idmef_target_t *target, unsigned int code, void **tag){
 
 	assert(target != NULL);
 
-	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_NODE){				//optional tag
-		if(target->node_tag == NULL){				//therefore, all the pointers must be init by NULL !
+	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_NODE){          //optional tag
+		if(target->node_tag == NULL){         //therefore, all the pointers must be init by NULL !
 			unsigned int i;
 
 			if((target->node_tag = (idmef_node_t *)malloc(sizeof(idmef_node_t)*sizeof(unsigned char)) ) == NULL){
-				fprintf(stderr, "%s(%s): could not malloc node_tag's room. %s\n", __FILE__, __LINE__, strerror(errno));
+				fprintf(stderr, "%s(%s): could not malloc node_tag's room. %s\n",\
+					__FILE__, __LINE__, strerror(errno));
 				exit(EXIT_FAILURE);
 			}
-			target->node_tag->ident 			= (unsigned char **) NULL;
-			target->node_tag->ident_len 		= (unsigned int *)NULL;
-			target->node_tag->category 		= (unsigned char **) NULL;
-			target->node_tag->category_len 	= (unsigned int *)NULL;
+			target->node_tag->ident          = (unsigned char **) NULL;
+			target->node_tag->ident_len      = (unsigned int *)NULL;
+			target->node_tag->category       = (unsigned char **) NULL;
+			target->node_tag->category_len   = (unsigned int *)NULL;
 			for(i = 0; i < IDMEF_MAX_ADDRS_NO; i++) target->node_tag->address_tag[i] = (idmef_addr_t *)NULL;
 			target->node_tag->addresses_no = 0;
 
@@ -673,11 +682,12 @@ char idmef_target_addtag(idmef_target_t *target, unsigned int code, void **tag){
 			*tag = (void *)(target->node_tag);
 
 		return (0);
-	} else if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_SERVICE){	//optional tag, therefore, all pointers must be NULLyfied !
-		if(target->service_tag == NULL){		//avoid multiple adds, but still allows attrs setting
+	} else if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_SERVICE){//optional tag, therefore, all pointers must be NULLyfied !
+		if(target->service_tag == NULL){  //avoid multiple adds, but still allows attrs setting
 
 			if((target->service_tag = (idmef_service_t *)malloc(sizeof(idmef_service_t)*sizeof(unsigned char)) ) == NULL){
-				fprintf(stderr, "%s(%s): could not malloc service_tag's room. %s\n", __FILE__, __LINE__, strerror(errno));
+				fprintf(stderr, "%s(%s): could not malloc service_tag's room. %s\n",\
+					__FILE__, __LINE__, strerror(errno));
 				exit(EXIT_FAILURE);
 			}
 			target->service_tag->ident 						= (unsigned char **) NULL;
