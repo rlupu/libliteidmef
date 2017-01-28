@@ -345,7 +345,7 @@ char idmef_alert_addtag(idmef_alert_t *alert, unsigned int code, void **tag){
 	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_SOURCE){  //optional tag
 		if(alert->sources_no >= IDMEF_MAX_SOURCES_NO){ 
 			fprintf(stderr, "%s(%d): pre-established IDMEF_MAX_SOURCES_NO const exceded.\n", \
-				_FILE__, __LINE__);
+				__FILE__, __LINE__);
 			return (-2);
 		}
 
