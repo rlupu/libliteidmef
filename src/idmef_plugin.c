@@ -496,7 +496,8 @@ void idmef_alert_wrattr(idmef_alert_t *alert, unsigned int attr, unsigned char *
 
 	if(attr == IDMEF_ATTR_ALERT_MESSAGEID){
 		if(alert->messageid == (unsigned char **)NULL){       //no room avail.
-			alert->messageid = (unsigned char **)&(alert->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - alert->ctxt->iov_blob_len].iov_base);
+			alert->messageid = (unsigned char **)&(alert->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 -\
+										alert->ctxt->iov_blob_len].iov_base);
 			alert->messageid_len = &(alert->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - alert->ctxt->iov_blob_len].iov_len);
 			alert->ctxt->iov_blob_len++;
 		}
@@ -662,7 +663,7 @@ char idmef_target_addtag(idmef_target_t *target, unsigned int code, void **tag){
 			unsigned int i;
 
 			if((target->node_tag = (idmef_node_t *)malloc(sizeof(idmef_node_t)*sizeof(unsigned char)) ) == NULL){
-				fprintf(stderr, "%s(%s): could not malloc node_tag's room. %s\n",\
+				fprintf(stderr, "%s(%d): could not malloc node_tag's room. %s\n",\
 					__FILE__, __LINE__, strerror(errno));
 				exit(EXIT_FAILURE);
 			}
@@ -671,7 +672,7 @@ char idmef_target_addtag(idmef_target_t *target, unsigned int code, void **tag){
 			target->node_tag->category       = (unsigned char **) NULL;
 			target->node_tag->category_len   = (unsigned int *)NULL;
 			for(i = 0; i < IDMEF_MAX_ADDRS_NO; i++) target->node_tag->address_tag[i] = (idmef_addr_t *)NULL;
-			target->node_tag->addresses_no = 0;
+			target->node_tag->addresses_no   = 0;
 
 			target->node_tag->ctxt = target->ctxt;
 		}
@@ -685,30 +686,31 @@ char idmef_target_addtag(idmef_target_t *target, unsigned int code, void **tag){
 	} else if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_SERVICE){//optional tag, therefore, all pointers must be NULLyfied !
 		if(target->service_tag == NULL){  //avoid multiple adds, but still allows attrs setting
 
-			if((target->service_tag = (idmef_service_t *)malloc(sizeof(idmef_service_t)*sizeof(unsigned char)) ) == NULL){
-				fprintf(stderr, "%s(%s): could not malloc service_tag's room. %s\n",\
+			target->service_tag = (idmef_service_t *)malloc(sizeof(idmef_service_t)*sizeof(unsigned char)); 
+			if(target->service_tag == NULL){
+				fprintf(stderr, "%s(%d): could not malloc service_tag's room. %s\n",\
 					__FILE__, __LINE__, strerror(errno));
 				exit(EXIT_FAILURE);
 			}
-			target->service_tag->ident 						= (unsigned char **) NULL;
-			target->service_tag->ident_len 					= (unsigned int *)NULL;
-			target->service_tag->ip_version					= (unsigned char **) NULL;
-			target->service_tag->ip_version_len				= (unsigned int *)NULL;
-			target->service_tag->iana_protocol_number		= (unsigned char **) NULL;
+			target->service_tag->ident                   = (unsigned char **) NULL;
+			target->service_tag->ident_len               = (unsigned int *)NULL;
+			target->service_tag->ip_version              = (unsigned char **) NULL;
+			target->service_tag->ip_version_len          = (unsigned int *)NULL;
+			target->service_tag->iana_protocol_number    = (unsigned char **) NULL;
 			target->service_tag->iana_protocol_number_len= (unsigned int *)NULL;
-			target->service_tag->iana_protocol_name		= (unsigned char **) NULL;
-			target->service_tag->iana_protocol_name_len	= (unsigned int *)NULL;
+			target->service_tag->iana_protocol_name      = (unsigned char **) NULL;
+			target->service_tag->iana_protocol_name_len  = (unsigned int *)NULL;
 
-			target->service_tag->name				= (unsigned char **)NULL;
-			target->service_tag->name_len			= (unsigned int *)NULL;
-			target->service_tag->port				= (unsigned char **)NULL;
-			target->service_tag->port_len			= (unsigned int *)NULL;
+			target->service_tag->name         = (unsigned char **)NULL;
+			target->service_tag->name_len     = (unsigned int *)NULL;
+			target->service_tag->port         = (unsigned char **)NULL;
+			target->service_tag->port_len     = (unsigned int *)NULL;
 			if(code & IDMEF_MASK_ATTR & IDMEF_ATTR_SERVICE_PORT)
 				target->service_tag->port_ts = target->ctxt->ts;	
-			target->service_tag->portlist			= (unsigned char **)NULL;
-			target->service_tag->portlist_len	= (unsigned int *)NULL;
-			target->service_tag->protocol			= (unsigned char **)NULL;
-			target->service_tag->protocol_len	= (unsigned int *)NULL;
+			target->service_tag->portlist     = (unsigned char **)NULL;
+			target->service_tag->portlist_len = (unsigned int *)NULL;
+			target->service_tag->protocol     = (unsigned char **)NULL;
+			target->service_tag->protocol_len = (unsigned int *)NULL;
 
 			target->service_tag->ctxt = target->ctxt;
 		}
@@ -729,7 +731,7 @@ char idmef_target_deltag(idmef_target_t *target, unsigned int code, unsigned cha
 	assert(target != NULL);
 
 	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_NODE){	
-		if(target->node_tag != NULL){ 									//node tag is optional
+		if(target->node_tag != NULL){		//node tag is optional
 			//free subtags memory 
 			for(i = 0; i < IDMEF_MAX_ADDRS_NO; i++){
 				if(target->node_tag->address_tag[i] != NULL) 
@@ -787,7 +789,7 @@ char idmef_source_addtag(idmef_source_t *source, unsigned int code, void **tag){
 		if(source->node_tag == NULL){				//therefore, all the pointers must be init by NULL !
 
 			if((source->node_tag = (idmef_node_t *)malloc(sizeof(idmef_node_t)*sizeof(unsigned char)) ) == NULL){
-				fprintf(stderr, "%s(%s): could not malloc node_tag's room. %s\n", __FILE__, __LINE__, strerror(errno));
+				fprintf(stderr, "%s(%d): could not malloc node_tag's room. %s\n", __FILE__, __LINE__, strerror(errno));
 				exit(EXIT_FAILURE);
 			}
 			source->node_tag->ident 			= (unsigned char **) NULL;
