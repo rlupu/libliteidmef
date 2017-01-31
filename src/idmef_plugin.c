@@ -785,17 +785,18 @@ char idmef_source_addtag(idmef_source_t *source, unsigned int code, void **tag){
 
 	assert(source != NULL);
 
-	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_NODE){				//optional tag
-		if(source->node_tag == NULL){				//therefore, all the pointers must be init by NULL !
+	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_NODE){ //optional tag
+		if(source->node_tag == NULL){ //therefore, all the pointers must be init by NULL !
 
 			if((source->node_tag = (idmef_node_t *)malloc(sizeof(idmef_node_t)*sizeof(unsigned char)) ) == NULL){
-				fprintf(stderr, "%s(%d): could not malloc node_tag's room. %s\n", __FILE__, __LINE__, strerror(errno));
+				fprintf(stderr, "%s(%d): could not malloc node_tag's room. %s\n", \
+					__FILE__, __LINE__, strerror(errno));
 				exit(EXIT_FAILURE);
 			}
-			source->node_tag->ident 			= (unsigned char **) NULL;
-			source->node_tag->ident_len 		= (unsigned int *)NULL;
-			source->node_tag->category 		= (unsigned char **) NULL;
-			source->node_tag->category_len 	= (unsigned int *)NULL;
+			source->node_tag->ident        = (unsigned char **) NULL;
+			source->node_tag->ident_len    = (unsigned int *)NULL;
+			source->node_tag->category     = (unsigned char **) NULL;
+			source->node_tag->category_len = (unsigned int *)NULL;
 			for(i = 0; i < IDMEF_MAX_ADDRS_NO; i++) source->node_tag->address_tag[i] = (idmef_addr_t *)NULL;
 			source->node_tag->addresses_no = 0;
 
@@ -810,32 +811,34 @@ char idmef_source_addtag(idmef_source_t *source, unsigned int code, void **tag){
 		return(0);
 	}
 
-	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_SERVICE){				//optional tag
-		if(source->service_tag == NULL){				//therefore, all the pointers must be init by NULL 
+	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_SERVICE){ //optional tag
+		if(source->service_tag == NULL){ //therefore, all the pointers must be init by NULL 
 
-			if((source->service_tag = (idmef_service_t *)malloc(sizeof(idmef_service_t)*sizeof(unsigned char)) ) == NULL){
-				fprintf(stderr, "%s(%s): could not malloc service_tag's room. %s\n", __FILE__, __LINE__, strerror(errno));
+			source->service_tag = (idmef_service_t *)malloc(sizeof(idmef_service_t)*sizeof(unsigned char)); 
+			if(source->service_tag == NULL){
+				fprintf(stderr, "%s(%d): could not malloc service_tag's room. %s\n", __FILE__,\
+					__LINE__, strerror(errno));
 				exit(EXIT_FAILURE);
 			}
-			source->service_tag->ident 						= (unsigned char **) NULL;
-			source->service_tag->ident_len 					= (unsigned int *)NULL;
-			source->service_tag->ip_version					= (unsigned char **) NULL;
-			source->service_tag->ip_version_len				= (unsigned int *)NULL;
-			source->service_tag->iana_protocol_number		= (unsigned char **) NULL;
+			source->service_tag->ident                   = (unsigned char **) NULL;
+			source->service_tag->ident_len               = (unsigned int *)NULL;
+			source->service_tag->ip_version              = (unsigned char **) NULL;
+			source->service_tag->ip_version_len          = (unsigned int *)NULL;
+			source->service_tag->iana_protocol_number    = (unsigned char **) NULL;
 			source->service_tag->iana_protocol_number_len= (unsigned int *)NULL;
-			source->service_tag->iana_protocol_name		= (unsigned char **) NULL;
-			source->service_tag->iana_protocol_name_len	= (unsigned int *)NULL;
+			source->service_tag->iana_protocol_name      = (unsigned char **) NULL;
+			source->service_tag->iana_protocol_name_len  = (unsigned int *)NULL;
 
-			source->service_tag->name				= (unsigned char **)NULL;
-			source->service_tag->name_len			= (unsigned int *)NULL;
-			source->service_tag->port				= (unsigned char **)NULL;
-			source->service_tag->port_len			= (unsigned int *)NULL;
+			source->service_tag->name         = (unsigned char **)NULL;
+			source->service_tag->name_len     = (unsigned int *)NULL;
+			source->service_tag->port         = (unsigned char **)NULL;
+			source->service_tag->port_len     = (unsigned int *)NULL;
 			if( (code & IDMEF_MASK_ATTR) == IDMEF_ATTR_SERVICE_PORT)
 				source->service_tag->port_ts = source->ctxt->ts;	
-			source->service_tag->portlist			= (unsigned char **)NULL;
-			source->service_tag->portlist_len	= (unsigned int *)NULL;
-			source->service_tag->protocol			= (unsigned char **)NULL;
-			source->service_tag->protocol_len	= (unsigned int *)NULL;
+			source->service_tag->portlist     = (unsigned char **)NULL;
+			source->service_tag->portlist_len = (unsigned int *)NULL;
+			source->service_tag->protocol     = (unsigned char **)NULL;
+			source->service_tag->protocol_len = (unsigned int *)NULL;
 	
 			source->service_tag->ctxt = source->ctxt;
 		}
@@ -879,7 +882,7 @@ char idmef_source_deltag(idmef_source_t *src, unsigned int code, unsigned char p
 	assert(src != NULL);
 
 	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_NODE){	
-		if(src->node_tag != NULL){ 									//node tag is optional
+		if(src->node_tag != NULL){ //node tag is optional
 			//free subtags memory 
 			for(i = 0; i < IDMEF_MAX_ADDRS_NO; i++){
 				if(src->node_tag->address_tag[i] != NULL) 
@@ -910,7 +913,7 @@ char idmef_node_deltag(idmef_node_t *node, unsigned int code, unsigned char pos)
 
 	assert(node != NULL);
 
-	if((code & IDMEF_MASK_TAG) == IDMEF_TAG_ADDR){			//optional tag
+	if((code & IDMEF_MASK_TAG) == IDMEF_TAG_ADDR){ //optional tag
 		assert(pos < IDMEF_MAX_ADDRS_NO);
 
 		if(node->address_tag[pos] != NULL){
@@ -927,7 +930,7 @@ char idmef_node_deltag(idmef_node_t *node, unsigned int code, unsigned char pos)
 							node->address_tag[j] = NULL;
 							break;
 						}
-					if(j == IDMEF_MAX_ADDRS_NO) break;	//no elems lasts
+					if(j == IDMEF_MAX_ADDRS_NO) break; //no elems lasts
 				}
 			node->addresses_no--;
 		} else 
@@ -943,42 +946,47 @@ char idmef_node_addtag(idmef_node_t *node, unsigned int code, void **tag){
 
 	assert(node != NULL);
 
-	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_ADDR){				//optional tag
+	if( (code & IDMEF_MASK_TAG) == IDMEF_TAG_ADDR){  //optional tag
 		if(node->addresses_no >= IDMEF_MAX_ADDRS_NO){
-			fprintf(stderr, "%s(%d): pre-established IDMEF_MAX_ADDRS_NO const exceded.\n", __FILE__, __LINE__);
+			fprintf(stderr, "%s(%d): pre-established IDMEF_MAX_ADDRS_NO const exceded.\n", \
+				__FILE__, __LINE__);
 			return (-2);
 		}
 
 		if(node->address_tag[node->addresses_no] == NULL){
-			if((node->address_tag[node->addresses_no] = (idmef_addr_t *)malloc(sizeof(idmef_addr_t)*sizeof(unsigned char)) ) == NULL){
-				fprintf(stderr, "%s(%s): could not malloc address_tag's room. %s\n", __FILE__, __LINE__, strerror(errno));
+			node->address_tag[node->addresses_no] = (idmef_addr_t *)malloc(sizeof(idmef_addr_t)*sizeof(unsigned char));
+			if(node->address_tag[node->addresses_no] == NULL){
+				fprintf(stderr, "%s(%d): could not malloc address_tag's room. %s\n", \
+					__FILE__, __LINE__, strerror(errno));
 				exit(EXIT_FAILURE);
 			}
 
-			node->address_tag[node->addresses_no]->ident 			= (unsigned char **)NULL;
-			node->address_tag[node->addresses_no]->ident_len 		= (unsigned int *)NULL;
+			node->address_tag[node->addresses_no]->ident        = (unsigned char **)NULL;
+			node->address_tag[node->addresses_no]->ident_len    = (unsigned int *)NULL;
 
-		 	node->address_tag[node->addresses_no]->category 		= (unsigned char **)&(node->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - node->ctxt->iov_blob_len].iov_base);
-		 	node->address_tag[node->addresses_no]->category_len 	= &(node->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - node->ctxt->iov_blob_len].iov_len);
+		 	node->address_tag[node->addresses_no]->category     = \
+				(unsigned char **)&(node->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - node->ctxt->iov_blob_len].iov_base);
+		 	node->address_tag[node->addresses_no]->category_len = \
+				&(node->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - node->ctxt->iov_blob_len].iov_len);
 			node->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - node->ctxt->iov_blob_len].iov_base	= IDMEF_ATTR_VALUE_UNKNOWN;	
 			node->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - node->ctxt->iov_blob_len].iov_len	= strlen(IDMEF_ATTR_VALUE_UNKNOWN);
 			node->ctxt->iov_blob_len++;
 			node->address_tag[node->addresses_no]->category_ts = node->ctxt->ts;
 
-			node->address_tag[node->addresses_no]->vlan_name 		= (unsigned char **)NULL;
-			node->address_tag[node->addresses_no]->vlan_name_len	= (unsigned int *)NULL;
-			node->address_tag[node->addresses_no]->vlan_num 		= (unsigned char **)NULL;
-			node->address_tag[node->addresses_no]->vlan_num_len	= (unsigned int *)NULL;
+			node->address_tag[node->addresses_no]->vlan_name     = (unsigned char **)NULL;
+			node->address_tag[node->addresses_no]->vlan_name_len = (unsigned int *)NULL;
+			node->address_tag[node->addresses_no]->vlan_num      = (unsigned char **)NULL;
+			node->address_tag[node->addresses_no]->vlan_num_len  = (unsigned int *)NULL;
 
-			node->address_tag[node->addresses_no]->address 		= (unsigned char **)NULL;
-			node->address_tag[node->addresses_no]->address_len	= (unsigned int *)NULL;
-			node->address_tag[node->addresses_no]->netmask 		= (unsigned char **)NULL;
-			node->address_tag[node->addresses_no]->netmask_len	= (unsigned int *)NULL;
+			node->address_tag[node->addresses_no]->address     = (unsigned char **)NULL;
+			node->address_tag[node->addresses_no]->address_len = (unsigned int *)NULL;
+			node->address_tag[node->addresses_no]->netmask     = (unsigned char **)NULL;
+			node->address_tag[node->addresses_no]->netmask_len = (unsigned int *)NULL;
 			if(code & IDMEF_ATTR_ADDR_NETMASK){
 				node->address_tag[node->addresses_no]->netmask_ts = node->ctxt->ts;
 			}
 
-		 	node->address_tag[node->addresses_no]->en_attrs = (code & IDMEF_MASK_ATTR) | IDMEF_ATTR_ADDR_CATEGORY;	// | ...
+		 	node->address_tag[node->addresses_no]->en_attrs = (code & IDMEF_MASK_ATTR) | IDMEF_ATTR_ADDR_CATEGORY;// | ...
 
 			node->address_tag[node->addresses_no]->ctxt = node->ctxt;
 		}
@@ -1030,34 +1038,34 @@ void idmef_addr_wrattr(idmef_addr_t *addr, unsigned int attr, unsigned char *val
 	if(addr == NULL) return;
 
 	if(attr == IDMEF_ATTR_ADDR_ADDRESS){
-		if(addr->address == (unsigned char **)NULL){						//within precompilation 
+		if(addr->address == (unsigned char **)NULL){ //within precompilation 
 			addr->address = (unsigned char **)&(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - addr->ctxt->iov_blob_len].iov_base);
 			addr->address_len = &(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - addr->ctxt->iov_blob_len].iov_len);
 			addr->ctxt->iov_blob_len++;
 		}
-		*(addr->address) = value;											//within postcompilation
+		*(addr->address) = value;                    //within postcompilation
 		*(addr->address_len) = len;
 		addr->address_ts = addr->ctxt->ts;
 		return;
 	}
 	if(attr == IDMEF_ATTR_ADDR_NETMASK){
-		if(addr->netmask == (unsigned char **)NULL){						//within precompilation 
+		if(addr->netmask == (unsigned char **)NULL){ //within precompilation 
 			addr->netmask = (unsigned char **)&(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - addr->ctxt->iov_blob_len].iov_base);
 			addr->netmask_len = &(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - addr->ctxt->iov_blob_len].iov_len);
 			addr->ctxt->iov_blob_len++;
 		}	
-		*(addr->netmask) = value;											//within postcompilation
+		*(addr->netmask) = value;                    //within postcompilation
 		*(addr->netmask_len) = len;
 		addr->netmask_ts = addr->ctxt->ts;
 		return;
 	}
 	if(attr == IDMEF_ATTR_ADDR_CATEGORY){
-		if(addr->category == (unsigned char **)NULL){				//within precompilation 
+		if(addr->category == (unsigned char **)NULL){ //within precompilation 
 			addr->category = (unsigned char **)&(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - addr->ctxt->iov_blob_len].iov_base);
 			addr->category_len = &(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - addr->ctxt->iov_blob_len].iov_len);
 			addr->ctxt->iov_blob_len++;
 		}
-		*(addr->category) = value;											//within postcompilation
+		*(addr->category) = value;                  //within postcompilation
 		*(addr->category_len) = len;
 		addr->category_ts = addr->ctxt->ts;	
 	}
