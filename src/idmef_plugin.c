@@ -968,8 +968,8 @@ char idmef_node_addtag(idmef_node_t *node, unsigned int code, void **tag){
 				(unsigned char **)&(node->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - node->ctxt->iov_blob_len].iov_base);
 		 	node->address_tag[node->addresses_no]->category_len = \
 				&(node->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - node->ctxt->iov_blob_len].iov_len);
-			node->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - node->ctxt->iov_blob_len].iov_base	= IDMEF_ATTR_VALUE_UNKNOWN;	
-			node->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - node->ctxt->iov_blob_len].iov_len	= strlen(IDMEF_ATTR_VALUE_UNKNOWN);
+			node->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - node->ctxt->iov_blob_len].iov_base = IDMEF_ATTR_VALUE_UNKNOWN;	
+			node->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - node->ctxt->iov_blob_len].iov_len = strlen(IDMEF_ATTR_VALUE_UNKNOWN);
 			node->ctxt->iov_blob_len++;
 			node->address_tag[node->addresses_no]->category_ts = node->ctxt->ts;
 
@@ -1039,7 +1039,8 @@ void idmef_addr_wrattr(idmef_addr_t *addr, unsigned int attr, unsigned char *val
 
 	if(attr == IDMEF_ATTR_ADDR_ADDRESS){
 		if(addr->address == (unsigned char **)NULL){ //within precompilation 
-			addr->address = (unsigned char **)&(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - addr->ctxt->iov_blob_len].iov_base);
+			addr->address = (unsigned char **)&(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 -\
+				addr->ctxt->iov_blob_len].iov_base);
 			addr->address_len = &(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - addr->ctxt->iov_blob_len].iov_len);
 			addr->ctxt->iov_blob_len++;
 		}
@@ -1050,18 +1051,20 @@ void idmef_addr_wrattr(idmef_addr_t *addr, unsigned int attr, unsigned char *val
 	}
 	if(attr == IDMEF_ATTR_ADDR_NETMASK){
 		if(addr->netmask == (unsigned char **)NULL){ //within precompilation 
-			addr->netmask = (unsigned char **)&(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - addr->ctxt->iov_blob_len].iov_base);
+			addr->netmask = (unsigned char **)&(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 -\
+				addr->ctxt->iov_blob_len].iov_base);
 			addr->netmask_len = &(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - addr->ctxt->iov_blob_len].iov_len);
 			addr->ctxt->iov_blob_len++;
 		}	
-		*(addr->netmask) = value;                    //within postcompilation
+		*(addr->netmask) = value;                   //within postcompilation
 		*(addr->netmask_len) = len;
 		addr->netmask_ts = addr->ctxt->ts;
 		return;
 	}
 	if(attr == IDMEF_ATTR_ADDR_CATEGORY){
 		if(addr->category == (unsigned char **)NULL){ //within precompilation 
-			addr->category = (unsigned char **)&(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - addr->ctxt->iov_blob_len].iov_base);
+			addr->category = (unsigned char **)&(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 -\
+				addr->ctxt->iov_blob_len].iov_base);
 			addr->category_len = &(addr->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - addr->ctxt->iov_blob_len].iov_len);
 			addr->ctxt->iov_blob_len++;
 		}
@@ -1133,12 +1136,13 @@ void idmef_service_wrattr(idmef_service_t *service, unsigned int attr, unsigned 
 	if(service == NULL) return;
 
 	if(attr == IDMEF_ATTR_SERVICE_PORT){
-		if(service->port == (unsigned char **)NULL){						//within precompilation 
-			service->port = (unsigned char **)&(service->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - service->ctxt->iov_blob_len].iov_base);
+		if(service->port == (unsigned char **)NULL){         //within precompilation 
+			service->port = (unsigned char **)&(service->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 -\
+				service->ctxt->iov_blob_len].iov_base);
 			service->port_len = &(service->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - service->ctxt->iov_blob_len].iov_len);
 			service->ctxt->iov_blob_len++;
 		}
-		*(service->port) = value;											//within postcompilation
+		*(service->port) = value;                            //within postcompilation
 		*(service->port_len) = len;
 		service->port_ts = service->ts;
 	}
@@ -1176,27 +1180,33 @@ char idmef_classification_addtag(idmef_classification_t *cls, unsigned int code,
 		}
 
 		if(cls->reference_tag[cls->references_no] == NULL){ 
-			if((cls->reference_tag[cls->references_no] = (idmef_reference_t *)malloc(sizeof(idmef_reference_t)*sizeof(unsigned char)) ) == NULL){
-				fprintf(stderr, "%s(%s): could not malloc reference_tag's room. %s\n", __FILE__, __LINE__, strerror(errno));
+			if((cls->reference_tag[cls->references_no] = (idmef_reference_t *)malloc(sizeof(idmef_reference_t)*\
+				sizeof(unsigned char)) ) == NULL){
+
+				fprintf(stderr, "%s(%s): could not malloc reference_tag's room. %s\n",\
+					__FILE__, __LINE__, strerror(errno));
 				exit(EXIT_FAILURE);
 			}
 
-		 	cls->reference_tag[cls->references_no]->origin		= (unsigned char **)&(cls->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - cls->ctxt->iov_blob_len].iov_base);
-		 	cls->reference_tag[cls->references_no]->origin_len = &(cls->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - cls->ctxt->iov_blob_len].iov_len);
-			cls->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - cls->ctxt->iov_blob_len].iov_base	= IDMEF_ATTR_VALUE_UNKNOWN;	
-			cls->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - cls->ctxt->iov_blob_len].iov_len	= strlen(IDMEF_ATTR_VALUE_UNKNOWN);
+		 	cls->reference_tag[cls->references_no]->origin     = (unsigned char **)&(cls->ctxt->\
+				iov[IDMEF_MAX_IOV_LEN - 1 - cls->ctxt->iov_blob_len].iov_base);
+		 	cls->reference_tag[cls->references_no]->origin_len = &(cls->ctxt->\
+				iov[IDMEF_MAX_IOV_LEN - 1 - cls->ctxt->iov_blob_len].iov_len);
+			cls->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - cls->ctxt->iov_blob_len].iov_base = IDMEF_ATTR_VALUE_UNKNOWN;	
+			cls->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - cls->ctxt->iov_blob_len].iov_len  = strlen(IDMEF_ATTR_VALUE_UNKNOWN);
 			cls->ctxt->iov_blob_len++;
 
-			cls->reference_tag[cls->references_no]->meaning		= (unsigned char **)NULL;	
+			cls->reference_tag[cls->references_no]->meaning    = (unsigned char **)NULL;	
 			cls->reference_tag[cls->references_no]->meaning_len= (unsigned int *)NULL;
-			cls->reference_tag[cls->references_no]->name			= (unsigned char **)NULL;	
-			cls->reference_tag[cls->references_no]->name_len 	= (unsigned int *)NULL;
-			cls->reference_tag[cls->references_no]->url			= (unsigned char **)NULL;	
-			cls->reference_tag[cls->references_no]->url_len 	= (unsigned int *)NULL;
+			cls->reference_tag[cls->references_no]->name       = (unsigned char **)NULL;	
+			cls->reference_tag[cls->references_no]->name_len   = (unsigned int *)NULL;
+			cls->reference_tag[cls->references_no]->url        = (unsigned char **)NULL;	
+			cls->reference_tag[cls->references_no]->url_len    = (unsigned int *)NULL;
 
 			cls->reference_tag[cls->references_no]->ctxt = cls->ctxt;
 		}
-	 	cls->reference_tag[cls->references_no]->en_attrs = (code & IDMEF_MASK_ATTR) | IDMEF_ATTR_REFERENCE_ORIGIN | IDMEF_ATTR_REFERENCE_NAME | IDMEF_ATTR_REFERENCE_URL;	//mandatory attrs
+	 	cls->reference_tag[cls->references_no]->en_attrs = (code & IDMEF_MASK_ATTR) |\
+			IDMEF_ATTR_REFERENCE_ORIGIN | IDMEF_ATTR_REFERENCE_NAME | IDMEF_ATTR_REFERENCE_URL;	//mandatory attrs
 
 		if(tag != NULL)	
 			*tag = (void *)(cls->reference_tag[cls->references_no]);
@@ -1211,7 +1221,7 @@ char idmef_classification_deltag(idmef_classification_t *cls, unsigned int code,
 
 	assert(cls != NULL);
 
-	if((code & IDMEF_MASK_TAG) == IDMEF_TAG_REFERENCE){			//optional tag
+	if((code & IDMEF_MASK_TAG) == IDMEF_TAG_REFERENCE){  //optional tag
 		assert(pos < IDMEF_MAX_REF_NO);
 
 		if(cls->reference_tag[pos] != NULL){
@@ -1228,7 +1238,7 @@ char idmef_classification_deltag(idmef_classification_t *cls, unsigned int code,
 							cls->reference_tag[j] = NULL;
 							break;
 						}
-					if(j == IDMEF_MAX_REF_NO) break;	//no elems lasts
+					if(j == IDMEF_MAX_REF_NO) break;         //no elems lasts
 				}
 			cls->references_no--;
 		} else 
@@ -1261,12 +1271,13 @@ void idmef_classification_wrattr(idmef_classification_t *cls, unsigned int attr,
 	if(cls == NULL) return;
 
 	if(attr == IDMEF_ATTR_CLASSIFICATION_TEXT){
-		if(cls->text == (unsigned char **)NULL){					//within precompilation 
-			cls->text = (unsigned char **)&(cls->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - cls->ctxt->iov_blob_len].iov_base);
+		if(cls->text == (unsigned char **)NULL){     //within precompilation 
+			cls->text = (unsigned char **)&(cls->ctxt->\
+				iov[IDMEF_MAX_IOV_LEN - 1 - cls->ctxt->iov_blob_len].iov_base);
 			cls->text_len = &(cls->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - cls->ctxt->iov_blob_len].iov_len);
 			cls->ctxt->iov_blob_len++;
 		}
-		*(cls->text) = value;										//within postcompilation
+		*(cls->text) = value;                        //within postcompilation
 		*(cls->text_len) = len;
 		cls->text_ts = cls->ctxt->ts;
 	}
@@ -1311,40 +1322,43 @@ void idmef_reference_wrattr(idmef_reference_t *ref, unsigned int attr, unsigned 
 	if(ref == NULL) return;
 
 	if(attr == IDMEF_ATTR_REFERENCE_ORIGIN){
-		if(ref->origin == (unsigned char **)NULL){						//within precompilation 
-			ref->origin = (unsigned char **)&(ref->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - ref->ctxt->iov_blob_len].iov_base);
+		if(ref->origin == (unsigned char **)NULL){    //within precompilation 
+			ref->origin = (unsigned char **)&(ref->ctxt->\
+				iov[IDMEF_MAX_IOV_LEN - 1 - ref->ctxt->iov_blob_len].iov_base);
 			ref->origin_len = &(ref->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - ref->ctxt->iov_blob_len].iov_len);
 			ref->ctxt->iov_blob_len++;
 		}
-		*(ref->origin) = value;											//within postcompilation
+		*(ref->origin) = value;                      //within postcompilation
 		*(ref->origin_len) = len;
 		ref->origin_ts = ref->ts;
 		return;
 	}
 	if(attr == IDMEF_ATTR_REFERENCE_NAME){
-		if(ref->name == (unsigned char **)NULL){						//within precompilation 
-			ref->name = (unsigned char **)&(ref->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - ref->ctxt->iov_blob_len].iov_base);
+		if(ref->name == (unsigned char **)NULL){     //within precompilation 
+			ref->name = (unsigned char **)&(ref->ctxt->\
+				iov[IDMEF_MAX_IOV_LEN - 1 - ref->ctxt->iov_blob_len].iov_base);
 			ref->name_len = &(ref->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - ref->ctxt->iov_blob_len].iov_len);
 			ref->ctxt->iov_blob_len++;
 		}
-		*(ref->name) = value;											//within postcompilation
+		*(ref->name) = value;                        //within postcompilation
 		*(ref->name_len) = len;
 		ref->name_ts = ref->ts;
 		return;
 	}
 	if(attr == IDMEF_ATTR_REFERENCE_URL){
-		if(ref->url == (unsigned char **)NULL){						//within precompilation 
-			ref->url = (unsigned char **)&(ref->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - ref->ctxt->iov_blob_len].iov_base);
+		if(ref->url == (unsigned char **)NULL){      //within precompilation 
+			ref->url = (unsigned char **)&(ref->ctxt->\
+				iov[IDMEF_MAX_IOV_LEN - 1 - ref->ctxt->iov_blob_len].iov_base);
 			ref->url_len = &(ref->ctxt->iov[IDMEF_MAX_IOV_LEN - 1 - ref->ctxt->iov_blob_len].iov_len);
 			ref->ctxt->iov_blob_len++;
 		}
-		*(ref->url) = value;											//within postcompilation
+		*(ref->url) = value;                         //within postcompilation
 		*(ref->url_len) = len;
 		ref->url_ts = ref->ts;
 	}
 }
 
-char idmef_reference_setattr(idmef_reference_t *ref, unsigned int code){ 	//TODO: it is really necessary ?????
+char idmef_reference_setattr(idmef_reference_t *ref, unsigned int code){ 	//TODO: is it really necessary ?
 	assert(ref != NULL);
 
 	//idmef_classification_addtag((idmef_classification_t *)*tag, IDMEF_TAG_REFERENCE|code, tag);		
@@ -1406,13 +1420,13 @@ char idmef_reference_rdattr(idmef_reference_t *ref, unsigned int code, unsigned 
 static void idmef_compile_service_tag(idmef_service_t *service, struct iovec *iov, unsigned char *o){
 
 	(*o)++;
-	iov[*o].iov_base = "\t\t\t<idmef:Service>\n";								//Start of Service tag (optional)
+	iov[*o].iov_base = "\t\t\t<idmef:Service>\n";                //Start of Service tag (optional)
 	iov[*o].iov_len = strlen("\t\t\t<idmef:Service>\n");									
 
 	//if(service->en_attrs & IDMEF_ATTR_SERVICE_PORT){
 	if(service->port_ts == service->ctxt->ts){
 		(*o)++;
-		iov[*o].iov_base = "\t\t\t\t<idmef:port>";								//port attr (optional)
+		iov[*o].iov_base = "\t\t\t\t<idmef:port>";                //port attr (optional)
 		iov[*o].iov_len = strlen("\t\t\t\t<idmef:port>");									
 
 		(*o)++;
@@ -1431,13 +1445,13 @@ static void idmef_compile_service_tag(idmef_service_t *service, struct iovec *io
 	}
 
 	(*o)++;
-	iov[*o].iov_base = "\t\t\t</idmef:Service>\n";								//End of Service tag
+	iov[*o].iov_base = "\t\t\t</idmef:Service>\n";               //End of Service tag
 	iov[*o].iov_len = strlen("\t\t\t</idmef:Service>\n");									
 }
 
 static void idmef_compile_address_tag(idmef_addr_t *addr, struct iovec *iov, unsigned char *o){
 	(*o)++;
-	iov[*o].iov_base = "\t\t\t\t<idmef:Address";									//Start of Addr tag 
+	iov[*o].iov_base = "\t\t\t\t<idmef:Address";                 //Start of Addr tag 
 	iov[*o].iov_len = strlen("\t\t\t\t<idmef:Address");									
 
 	if(addr->category_ts == addr->ctxt->ts){
@@ -1446,7 +1460,7 @@ static void idmef_compile_address_tag(idmef_addr_t *addr, struct iovec *iov, uns
 		iov[*o].iov_len = strlen(" category=\"");									
 
 		(*o)++;
-		if(addr->category != (unsigned char **)NULL){							//categ attr(optional)
+		if(addr->category != (unsigned char **)NULL){             //categ attr(optional)
 			iov[*o].iov_base = *(addr->category);
 			iov[*o].iov_len = *(addr->category_len);	
 		}else{
@@ -1461,7 +1475,7 @@ static void idmef_compile_address_tag(idmef_addr_t *addr, struct iovec *iov, uns
 	}
 
 	(*o)++;
-	iov[*o].iov_base = ">\n\t\t\t\t\t<idmef:address>";							//address attr(mandatory)
+	iov[*o].iov_base = ">\n\t\t\t\t\t<idmef:address>";           //address attr(mandatory)
 	iov[*o].iov_len = strlen(">\n\t\t\t\t\t<idmef:address>");									
 
 	(*o)++;
@@ -1480,7 +1494,7 @@ static void idmef_compile_address_tag(idmef_addr_t *addr, struct iovec *iov, uns
 
 	if(addr->netmask_ts == addr->ctxt->ts){
 		(*o)++;
-		iov[*o].iov_base = "\t\t\t\t\t<idmef:netmask>";						//netmask attr (optional)
+		iov[*o].iov_base = "\t\t\t\t\t<idmef:netmask>";            //netmask attr (optional)
 		iov[*o].iov_len = strlen("\t\t\t\t\t<idmef:netmask>");									
 
 		(*o)++;
@@ -1499,7 +1513,7 @@ static void idmef_compile_address_tag(idmef_addr_t *addr, struct iovec *iov, uns
 	}
 
 	(*o)++;
-	iov[*o].iov_base = "\t\t\t\t</idmef:Address>\n";						//End of Addr tag 
+	iov[*o].iov_base = "\t\t\t\t</idmef:Address>\n";              //End of Addr tag 
 	iov[*o].iov_len = strlen("\t\t\t\t</idmef:Address>\n");									
 }
 
@@ -1507,15 +1521,15 @@ static void idmef_compile_address_tag(idmef_addr_t *addr, struct iovec *iov, uns
 static void idmef_compile_reference_tag(idmef_reference_t *ref, struct iovec *iov, unsigned char *o){
 
 	(*o)++;
-	iov[*o].iov_base = "\t\t\t<idmef:Reference";								//Start of Reference tag
+	iov[*o].iov_base = "\t\t\t<idmef:Reference";                  //Start of Reference tag
 	iov[*o].iov_len = strlen("\t\t\t<idmef:Reference");
 
 	(*o)++;
-	iov[*o].iov_base = " origin=\"";												//origin attr (mandatory)	
+	iov[*o].iov_base = " origin=\"";                              //origin attr (mandatory)	
 	iov[*o].iov_len = strlen(" origin=\"");									
 
 	(*o)++;
-	if(ref->origin != (unsigned char **)NULL){			//check out if settled at compilation time
+	if(ref->origin != (unsigned char **)NULL){                    //check out if settled at compilation time
 		iov[*o].iov_base = *(ref->origin);
 		iov[*o].iov_len = *(ref->origin_len);
 	}else{
@@ -1529,7 +1543,7 @@ static void idmef_compile_reference_tag(idmef_reference_t *ref, struct iovec *io
 	iov[*o].iov_len = strlen("\"");									
 
 	(*o)++;
-	iov[*o].iov_base = ">\n\t\t\t\t<idmef:name>";								//name attr (mandatory)	
+	iov[*o].iov_base = ">\n\t\t\t\t<idmef:name>";                 //name attr (mandatory)	
 	iov[*o].iov_len = strlen(">\n\t\t\t\t<idmef:name>");								
 
 	(*o)++;
@@ -1547,7 +1561,7 @@ static void idmef_compile_reference_tag(idmef_reference_t *ref, struct iovec *io
 	iov[*o].iov_len = strlen("</idmef:name>\n");									
 
 	(*o)++;
-	iov[*o].iov_base = "\t\t\t\t<idmef:url>";										//url attr (mandatory)	
+	iov[*o].iov_base = "\t\t\t\t<idmef:url>";                     //url attr (mandatory)	
 	iov[*o].iov_len = strlen("\t\t\t\t<idmef:url>");							
 
 	(*o)++;
@@ -1565,7 +1579,7 @@ static void idmef_compile_reference_tag(idmef_reference_t *ref, struct iovec *io
 	iov[*o].iov_len = strlen("</idmef:url>\n");				
 
 	(*o)++;
-	iov[*o].iov_base = "\t\t\t</idmef:Reference>\n";							//End of Reference tag
+	iov[*o].iov_base = "\t\t\t</idmef:Reference>\n";              //End of Reference tag
 	iov[*o].iov_len = strlen("\t\t\t</idmef:Reference>\n");
 }
 
@@ -1573,10 +1587,10 @@ static void idmef_compile_node_tag(idmef_node_t *node, struct iovec *iov, unsign
 	unsigned int i;
 
 	(*o)++;
-	iov[*o].iov_base = "\t\t\t<idmef:Node>\n";						//Start of Node tag (optional)
+	iov[*o].iov_base = "\t\t\t<idmef:Node>\n";                    //Start of Node tag (optional)
 	iov[*o].iov_len = strlen("\t\t\t<idmef:Node>\n");									
 
-	for(i = 0; i < node->addresses_no; i++){							//Search for Addr tag (optional)
+	for(i = 0; i < node->addresses_no; i++){                      //Search for Addr tag (optional)
 		idmef_compile_address_tag(node->address_tag[i], iov, o);
 	}						
 	(*o)++;
@@ -1604,7 +1618,7 @@ void idmef_compile(idmef_t *ctxt){
 
 
 	//start (re)compilation, here
-	offset = 0;								//Start of Message tag
+	offset = 0;                                                   //Start of Message tag
 	iov[offset].iov_base = "<idmef:IDMEF-Message version=\"1.0\" xmlns:idmef=\"http://iana.org/idmef\">\n";
 	iov[offset].iov_len = strlen("<idmef:IDMEF-Message version=\"1.0\" xmlns:idmef=\"http://iana.org/idmef\">\n");
 
@@ -1624,7 +1638,7 @@ void idmef_compile(idmef_t *ctxt){
 				iov[offset].iov_len = *(ctxt->alert_tag->messageid_len);														
 			}else
 				iov[offset].iov_len = 0;
-			ctxt->alert_tag->messageid = (unsigned char **)&(iov[offset].iov_base);		//message id attribute (mandatory)
+			ctxt->alert_tag->messageid = (unsigned char **)&(iov[offset].iov_base); //message id attribute (mandatory)
 			ctxt->alert_tag->messageid_len = &(iov[offset].iov_len);
 		}//Note: necessary, whenever compiled before setting its value 
 		offset++;
@@ -1633,11 +1647,11 @@ void idmef_compile(idmef_t *ctxt){
 
 
 		offset++;
-		iov[offset].iov_base = "\t\t<idmef:Analyzer name=\"";						//Start of Analyzer tag(mandatory)
+		iov[offset].iov_base = "\t\t<idmef:Analyzer name=\"";        //Start of Analyzer tag(mandatory)
 		iov[offset].iov_len = strlen("\t\t<idmef:Analyzer name=\"");
 
 		offset++;
-		if(ctxt->alert_tag->analyzer_tag.name != (unsigned char **)NULL){				//name attr (mandatory)
+		if(ctxt->alert_tag->analyzer_tag.name != (unsigned char **)NULL){  //name attr (mandatory)
 			iov[offset].iov_base = *(ctxt->alert_tag->analyzer_tag.name);
 			iov[offset].iov_len = *(ctxt->alert_tag->analyzer_tag.name_len);														
 		}else{
@@ -1648,11 +1662,11 @@ void idmef_compile(idmef_t *ctxt){
 
 
 		offset++;
-		iov[offset].iov_base = "\">\n\t\t</idmef:Analyzer>\n\t\t<idmef:CreateTime>";		//End of Analyzer tag
+		iov[offset].iov_base = "\">\n\t\t</idmef:Analyzer>\n\t\t<idmef:CreateTime>";  //End of Analyzer tag
 		iov[offset].iov_len = strlen("\">\n\t\t</idmef:Analyzer>\n\t\t<idmef:CreateTime>");
 
 		offset++;
-		if(ctxt->alert_tag->createtime_tag.body != (unsigned char **)NULL){			//body attr(mandatory)
+		if(ctxt->alert_tag->createtime_tag.body != (unsigned char **)NULL){  //body attr(mandatory)
 			iov[offset].iov_base = *(ctxt->alert_tag->createtime_tag.body);
 			iov[offset].iov_len = *(ctxt->alert_tag->createtime_tag.body_len);														
 		}else{
@@ -1663,12 +1677,12 @@ void idmef_compile(idmef_t *ctxt){
 
 		offset++;
 		iov[offset].iov_base = "</idmef:CreateTime>\n";							
-		iov[offset].iov_len = strlen("</idmef:CreateTime>\n");						//End of CreateTime tag
+		iov[offset].iov_len = strlen("</idmef:CreateTime>\n");         //End of CreateTime tag
 
 
-		for(i = 0; i < ctxt->alert_tag->targets_no; i++){								//Search for Target tag (optional)
+		for(i = 0; i < ctxt->alert_tag->targets_no; i++){              //Search for Target tag (optional)
 			offset++;
-			iov[offset].iov_base = "\t\t<idmef:Target>\n";							//Start of Target tag
+			iov[offset].iov_base = "\t\t<idmef:Target>\n";              //Start of Target tag
 			iov[offset].iov_len = strlen("\t\t<idmef:Target>\n");									
 
 			if(ctxt->alert_tag->target_tag[i]->node_tag != NULL){
@@ -1679,14 +1693,14 @@ void idmef_compile(idmef_t *ctxt){
 				idmef_compile_service_tag(ctxt->alert_tag->target_tag[i]->service_tag, iov, &offset);
 			}
 			offset++;
-			iov[offset].iov_base = "\t\t</idmef:Target>\n";							//End of Target tag
+			iov[offset].iov_base = "\t\t</idmef:Target>\n";             //End of Target tag
 			iov[offset].iov_len = strlen("\t\t</idmef:Target>\n");									
 		}	//end of for( ...target_tag[i] ...
 
 
-		for(i = 0; i < ctxt->alert_tag->sources_no; i++){									//Search for Source tag (optional)
+		for(i = 0; i < ctxt->alert_tag->sources_no; i++){              //Search for Source tag (optional)
 			offset++;
-			iov[offset].iov_base = "\t\t<idmef:Source>\n";						//Start of Source tag
+			iov[offset].iov_base = "\t\t<idmef:Source>\n";              //Start of Source tag
 			iov[offset].iov_len = strlen("\t\t<idmef:Source>\n");									
 
 			if(ctxt->alert_tag->source_tag[i]->node_tag != NULL)			
@@ -1697,15 +1711,15 @@ void idmef_compile(idmef_t *ctxt){
 				idmef_compile_service_tag(ctxt->alert_tag->source_tag[i]->service_tag, iov, &offset);
 
 			offset++;
-			iov[offset].iov_base = "\t\t</idmef:Source>\n";						//End of Source tag
+			iov[offset].iov_base = "\t\t</idmef:Source>\n";             //End of Source tag
 			iov[offset].iov_len = strlen("\t\t</idmef:Source>\n");						
 		} //end of for( ... source_tag[i] ...
 
 		offset++;
-		iov[offset].iov_base = "\t\t<idmef:Classification text=\"";				//Start of Classification tag(mandatory)
+		iov[offset].iov_base = "\t\t<idmef:Classification text=\"";  //Start of Classification tag(mandatory)
 		iov[offset].iov_len = strlen("\t\t<idmef:Classification text=\"");	
 
-		offset++;																				//text attribute(mandatory)
+		offset++;                                                    //text attribute(mandatory)
 		if(ctxt->alert_tag->classification_tag.text != (unsigned char **)NULL){						
 			iov[offset].iov_base = *(ctxt->alert_tag->classification_tag.text);
 			iov[offset].iov_len = *(ctxt->alert_tag->classification_tag.text_len);	
@@ -1719,15 +1733,15 @@ void idmef_compile(idmef_t *ctxt){
 		iov[offset].iov_base = "\">\n";		
 		iov[offset].iov_len = strlen("\">\n");
 
-		for(i = 0; i < ctxt->alert_tag->classification_tag.references_no; i++)	//Search for Reference tag (optional)
+		for(i = 0; i < ctxt->alert_tag->classification_tag.references_no; i++)  //Search for Reference tag (optional)
 			idmef_compile_reference_tag(ctxt->alert_tag->classification_tag.reference_tag[i], iov, &offset);
 
 		offset++;
-		iov[offset].iov_base = "\t\t</idmef:Classification>\n";					//End of classification tag
+		iov[offset].iov_base = "\t\t</idmef:Classification>\n";      //End of classification tag
 		iov[offset].iov_len = strlen("\t\t</idmef:Classification>\n");
 	
 		offset++;
-		iov[offset].iov_base = "\t</idmef:Alert>\n";									//End of Alert tag
+		iov[offset].iov_base = "\t</idmef:Alert>\n";                 //End of Alert tag
 		iov[offset].iov_len = strlen("\t</idmef:Alert>\n");
 	}
 
@@ -1736,7 +1750,7 @@ void idmef_compile(idmef_t *ctxt){
 	}//end of "heartbeat_tag"	
 
 	offset++;
-	iov[offset].iov_base = "</idmef:IDMEF-Message>\n\n";							//End of Message tag
+	iov[offset].iov_base = "</idmef:IDMEF-Message>\n\n";          //End of Message tag
 	iov[offset].iov_len = strlen("</idmef:IDMEF-Message>\n\n");
 
 
@@ -1822,7 +1836,7 @@ char idmef_free(idmef_t *ctxt){
 ANNEX
 =====
 	fprintf(idmef_fd, "<idmef:IDMEF-Message version=\"1.0\" xmlns:idmef=\"http://iana.org/idmef\" />\n");
-		fprintf(idmef_fd, "\t<idmef:Alert messageid=\"%s\">\n", "abcdef12345");			//TODO: replace w/ event_id
+		fprintf(idmef_fd, "\t<idmef:Alert messageid=\"%s\">\n", "abcdef12345");   //TODO: replace w/ event_id
 			fprintf(idmef_fd, "\t\t<idmef:Analyzer name=\"%s\">\n", IDS_ANALYZERID);
 			fprintf(idmef_fd, "\t\t</idmef:Analyzer>\n");
 
