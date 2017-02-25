@@ -398,10 +398,10 @@ extern void idmef_reference_wrattr(idmef_reference_t *, unsigned int, unsigned c
 extern char idmef_reference_rdattr(idmef_reference_t *, unsigned int, unsigned char **, unsigned int *);
 
 
-extern void idmef_compile(idmef_t *);			//tree --> iov[] conversion
+extern void idmef_compile(idmef_t *);     //tree --> iov[] conversion
 extern void idmef_write(idmef_t *);
-extern char idmef_loop(void);						//wait for the server's thread
-extern char idmef_free(idmef_t *);				//release of common resources; e.g. IO descriptors 	
+extern char idmef_loop(void);             //wait for the server's thread
+extern char idmef_free(idmef_t *);        //release of common resources; e.g. IO descriptors 	
 
 
 
